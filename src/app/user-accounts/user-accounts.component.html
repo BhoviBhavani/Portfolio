@@ -1,0 +1,17 @@
+<div class="users-account">
+  <div class="container">
+    <div class="col-md-4 offset-md-4">
+      <p-card header="Select an account">
+        <p-table [value]="userData" [tableStyle]="{ 'min-width': '24rem' }">
+          <ng-template pTemplate="body" let-user>
+              <tr>
+                  <td class="user-tab" (click)="showUserProfile(user)"><span class="me-4"><img class="profile-pic" src="{{user.profilepicture}}" alt=""></span>
+                    {{ user.name }}
+                  </td>
+              </tr>
+          </ng-template>
+      </p-table>
+    </p-card>
+    </div>
+  </div>
+</div>

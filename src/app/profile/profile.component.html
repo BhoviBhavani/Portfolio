@@ -1,0 +1,142 @@
+<div class="profile">
+  <p-splitter [style]="{ height: '100vh' }" [panelSizes]="[25, 75]" [draggable]="false">
+    <ng-template pTemplate class="left-part">
+      <div class="col parent-menu">
+        <ul class="menu">
+          <li (click)="getUserData()">Profile</li>
+          <li (click)="showComingSoonPage('Posts')">Posts</li>
+          <li (click)="showComingSoonPage('Gallery')">Gallery</li>
+          <li (click)="showComingSoonPage('ToDo')">ToDo</li>
+        </ul>
+      </div>
+    </ng-template>
+    <ng-template pTemplate class="right-part">
+      <div class="container mt-4">
+        <div class="row">
+          <div class="col-md-8">
+            <h2>{{header}}</h2>
+          </div>
+          <div class="col-md-4">
+            <div class="info">
+              <span class="me-3"><img class="profile-pic" src="{{UserData.profilepicture}}" alt="profile pic"></span>
+              <span class="name">{{ UserData.name }}</span>
+            </div>
+            <div>
+            <button class="signout" (click)="signOut()">
+              <i class="fas fa-sign-out-alt"></i>Sign out</button>
+          </div>
+          </div>
+        </div>
+        <p-divider></p-divider>
+        <div class="row" *ngIf="!showCommingSoon">
+          <div class="col" style="border-right: 1px solid #dee2e6 ;">
+            <div class="row">
+              <div class="col offset-md-3">
+                <div class="user-profile">
+                  <img src="{{UserData.profilepicture}}" alt="profile-pic">
+                  <h4 class="name">{{UserData.name}}</h4>
+                </div>
+                <div class="personal-info mt-2">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td class="text-end"><h4>Username : </h4></td>
+                        <td><h4>{{UserData.username}}</h4></td>
+                      </tr>
+                      <tr>
+                        <td class="text-end"><h4>e-mail : </h4></td>
+                        <td><h4>{{UserData.email}}</h4></td>
+                      </tr>
+                      <tr>
+                        <td class="text-end"><h4>Phone : </h4></td>
+                        <td><h4>{{UserData.phone}}</h4></td>
+                      </tr>
+                      <tr>
+                        <td class="text-end"><h4>Website : </h4></td>
+                        <td><h4>{{UserData.website}}</h4></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <p-divider></p-divider>
+            <div class="row">
+              <div class="col offset-md-3">
+                <div class="text-center">
+                  <h4>Company </h4>
+                </div>
+                <div class="text-center mt-2">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td class="text-end"><h4>Name : </h4></td>
+                        <td class="whitespace"><h4>{{UserData.company?.name}}</h4></td>
+                      </tr>
+                      <tr>
+                        <td class="text-end"><h4>catchphrase : </h4></td>
+                        <td class="whitespace"><h4>{{UserData.company?.catchPhrase}}</h4></td>
+                      </tr>
+                      <tr>
+                        <td class="text-end"><h4>bs : </h4></td>
+                        <td class="whitespace"><h4>{{UserData.company?.bs}}</h4></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="row">
+              <div class="col offset-md-1">
+                <h4>Address</h4>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="text-end"><h4>Street : </h4></td>
+                      <td><h4>{{UserData.address?.street}}</h4></td>
+                    </tr>
+                    <tr>
+                      <td class="text-end"><h4>Suite : </h4></td>
+                      <td><h4>{{UserData.address?.suite}}</h4></td>
+                    </tr>
+                    <tr>
+                      <td class="text-end"><h4>city : </h4></td>
+                      <td><h4>{{UserData.address?.city}}</h4></td>
+                    </tr>
+                    <tr>
+                      <td class="text-end"><h4>Zipcode : </h4></td>
+                      <td><h4>{{UserData.address?.zipcode}}</h4></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="location-image">
+                  <img src="https://vatvostudio.vn/wp-content/uploads/2022/09/Google-Maps-Traffic2.jpg" alt="">
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row text-center"  *ngIf="showCommingSoon">
+          <div class="col">
+            <h1>Coming Soon</h1>
+          </div>
+        </div>
+        <div class="chat-box-dropdown" [ngClass]="{ open: !isChatOpen }">
+          <div class="chat-toggle-button" (click)="toggleChat()">
+            <i class="fas fa-comments"></i> <span>Chat</span>
+          </div>
+          <div class="chat-list">
+            <div class="chat-user" *ngFor="let user of chatUsers">
+              <img class="profile-pic" src="{{ user.profilePicture }}" alt="profile pic">
+              <span class="name">{{ user.name }}</span>
+              <span class="dot" [ngClass]="{ online: user.online, offline: !user.online }"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-splitter>
+</div>

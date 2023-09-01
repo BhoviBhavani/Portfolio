@@ -1,0 +1,134 @@
+.profile {
+  height: 100vh;
+
+  .parent-menu {
+    padding-top: 10rem !important;
+    .menu {
+      li {
+        list-style-type: none !important;
+        margin-left: 3rem !important;
+        border-bottom: 1px solid;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        margin-right: 3rem !important;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .info{
+    cursor: pointer;
+    .profile-pic{
+      height: 35px;
+      width: 35px;
+      border-radius: 50%;
+    }
+    .name{
+      font-weight: 500;
+    }
+    .user-tab{
+      cursor: pointer;
+    }
+  }
+
+  .user-profile{
+    text-align: center;
+    img{
+      height: 250px;
+      width: 250px;
+      border-radius: 50%;
+    }
+  }
+
+  .whitespace{
+    word-break: normal;
+  }
+  .location-image{
+    img{
+    height: 350px;
+    width: 500px;
+    }
+  }
+  .chat-box-dropdown {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .chat-box-dropdown.open {
+    display: block; /* Show when open */
+  }
+  .chat-toggle-button {
+    cursor: pointer;
+    padding: 5px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    color: #ffffff;
+    background-color: #007bff;
+  }
+  .chat-toggle-button i {
+    margin-right: 8px;
+  }
+
+  .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-left: 5px; 
+  }
+  
+  .dot.online {
+    background-color: green;
+  }
+  
+  .dot.offline {
+    background-color:gray;
+  }
+  
+  .chat-list {
+    padding-top: 10px;
+    max-height: 200px;
+    overflow-y: auto; 
+  }
+  
+  .chat-user {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .signout {
+    background-color: #007bff; 
+    color: #ffffff; 
+    border: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px; 
+    position: relative;
+    left: 50%;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  .signout i {
+    margin-right: 8px; 
+  }
+  
+  .signout:hover {
+    background-color: #0056b3; 
+    transform: scale(1.05); 
+  }
+}
+
